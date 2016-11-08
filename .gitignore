@@ -1,0 +1,12 @@
+*.d
+*.crf
+*.o
+1-TIM—基本定时器-定时/Output/TIM—基本定时器定时.axf
+*.htm
+*.Bak
+1-TIM—基本定时器-定时/Output/TIM—基本定时器定时.sct
+1-TIM—基本定时器-定时/Output/TIM—基本定时器定时.lnp
+*.hex
+1-TIM—基本定时器-定时/Output/ExtDll.iex
+*.dep
+*.s
