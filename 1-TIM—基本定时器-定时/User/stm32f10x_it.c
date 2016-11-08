@@ -168,10 +168,11 @@ void delay(unsigned char i){
         }   
     }   
 
+unsigned char X,Y;
 
 void  BASIC_TIM_IRQHandler (void)
 {
-  unsigned char i,Data_temp,X,Y;
+  unsigned char i,Data_temp;
 
 	if ( TIM_GetITStatus( BASIC_TIM, TIM_IT_Update) != RESET ) 
 	{	
