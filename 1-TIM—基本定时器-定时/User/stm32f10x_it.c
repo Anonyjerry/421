@@ -193,6 +193,7 @@ void  BASIC_TIM_IRQHandler (void)
 				//GPIO_ReadInputDataBit;
 				Data_temp=GPIO_ReadOutputDataBit(LED3_GPIO_PORT,LED3_GPIO_PIN);
 				//Data_temp=SSI_GPIO_PIN;
+				//maybe this a bug
 				Out_data_m<<=1;
 				Out_data_m=Out_data_m|(Data_temp&&0x01);
 			}
