@@ -12,8 +12,8 @@
 #define            BASIC_TIM                   TIM6
 #define            BASIC_TIM_APBxClock_FUN     RCC_APB1PeriphClockCmd
 #define            BASIC_TIM_CLK               RCC_APB1Periph_TIM6
-#define            BASIC_TIM_Period           143//(1000-1)
-#define            BASIC_TIM_Prescaler         1
+#define            BASIC_TIM_Period           9//(1000-1)
+#define            BASIC_TIM_Prescaler         17
 #define            BASIC_TIM_IRQ               TIM6_IRQn
 #define            BASIC_TIM_IRQHandler        TIM6_IRQHandler
 
@@ -21,8 +21,8 @@
 #define            BASIC_TIM                   TIM7
 #define            BASIC_TIM_APBxClock_FUN     RCC_APB1PeriphClockCmd
 #define            BASIC_TIM_CLK               RCC_APB1Periph_TIM7
-#define            BASIC_TIM_Period           143//1000-1
-#define            BASIC_TIM_Prescaler         1
+#define            BASIC_TIM_Period           9//143//1000-1
+#define            BASIC_TIM_Prescaler        17//1
 #define            BASIC_TIM_IRQ               TIM7_IRQn
 #define            BASIC_TIM_IRQHandler        TIM7_IRQHandler
 

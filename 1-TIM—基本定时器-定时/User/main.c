@@ -25,24 +25,23 @@ int main(void)
 	LED_GPIO_Config();
 	
 	SSI_GPIO_Config();
-	USART_Config();
+	//USART_Config();
 	BASIC_TIM_Init();
   while(1)
   {
 
-
-
 #if 0
-    if ( time == 10 ) /* 1000 * 1 ms = 1s 时间到 */
+    if ( time == 1 ) /* 1000 * 1 ms = 1s 时间到 */
     { 
 			time = 0;
-LED1_TOGGLE;
+		LED1_TOGGLE;
 			
 	//	Out_data=SSI_GET_data(16);
 	//  printf("%d\n",Out_data);
 	/* LED1 取反 */      
 //	 SSI_TOGGLE;			
-    } 
+    }
+
 #endif
 
 
