@@ -9,8 +9,6 @@
   * @attention
   *
   * 实验平台:秉火 F103-霸道 STM32 开发板 
-  * 论坛    :http://www.firebbs.cn
-  * 淘宝    :http://firestm32.taobao.com 
 	
 	DCM.DLL
 	-pCM3

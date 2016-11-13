@@ -25,7 +25,7 @@ int main(void)
 	LED_GPIO_Config();
 	
 	SSI_GPIO_Config();
-	//USART_Config();
+	USART_Config();
 	BASIC_TIM_Init();
   while(1)
   {

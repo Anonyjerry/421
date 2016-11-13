@@ -176,7 +176,7 @@ void  BASIC_TIM_IRQHandler (void)
 
 	if ( TIM_GetITStatus( BASIC_TIM, TIM_IT_Update) != RESET ) 
 	{	
-		time++;
+		time++;//1-4000
 #if 0
 		if(time%2){LED1_ON;LED2_ON;}
 		else {LED1_OFF;LED2_OFF;}
@@ -184,34 +184,35 @@ void  BASIC_TIM_IRQHandler (void)
 		
 #if 1	
 			
-		if(time==0) { LED1_ON;LED2_ON;Out_data_m=0;Out_data_s=0;X=0;Y=0;}//Init data 
+		if(time==0) { LED1_ON;LED2_ON;Out_data_m=0;Out_data_s=0;X=0;Y=12;}//Init data 
 		else if((time>0)&&(time<=40))
-		{
+		{ if (time==2){LED2_OFF;return;}
 			if(time%2==1)  
 			{
 				LED1_ON;LED2_ON;// RESET CLK==1 
-				delay(1);	
+				delay(3);	
 			}
+			
 			//receive the former
-			else if (time<15){
-				//X++;
-				//printf("x--%d\n\r\n\r",X);
+		else	if ((time>2)&&(time<17))
+			{
+			//	X++;
+			//	printf("x--%d--time--%d\n\r\n\r",X,time);
 				LED1_OFF;LED2_OFF;  //RESET CLK=0  AND READ DATA
-				
+			
 				//GPIO_ReadInputDataBit;
 				Data_temp=GPIO_ReadInputDataBit(LED3_GPIO_PORT,LED3_GPIO_PIN);
-				//Data_temp=SSI_GPIO_PIN;
-				//maybe this is a bug
 				Out_data_m<<=1;
 				Out_data_m=Out_data_m|(Data_temp&&0x01);
 			}
 			//receive behand
-			else if (time<=40&&time>=15)
-			{	//Y++;
-			//printf("Y--%d\n\r\n\r",Y);
+			else if (time<=40&&time>=18)
+			{	//--Y;
+			//printf("y--%d--time--%d\n\r\n\r",Y,time);
 				LED1_OFF;LED2_OFF;
+				
 				Data_temp=GPIO_ReadInputDataBit(LED3_GPIO_PORT,LED3_GPIO_PIN);
-				// Data_temp=SSI_GPIO_PIN;
+			//	printf("Data_temp--%d\n\r\n\r",Data_temp);
 				Out_data_s<<=1;
 				Out_data_s=Out_data_s|(Data_temp&&0x01);
 			}
@@ -219,13 +220,12 @@ void  BASIC_TIM_IRQHandler (void)
 		}
 		else if(time==42){	
 			//printf("%d--%d\n\r\n\r",X,Y);
-			LED1_OFF;LED2_OFF; X=0;Y=0;
+			LED1_OFF;LED2_OFF; X=0;Y=12;
 		}
 		else if(time==80)
 		{
-		//Out_data_s=0;
-		//printf("--Out_data_m==%d\n\r--Out_data_s==%d\n\r\n\r",Out_data_m,Out_data_s);
-
+		Out_data_s=Out_data_s & 0xfff;
+		printf("--Out_data_m==%d\n\r--Out_data_s==%d\n\r\n\r",Out_data_m,Out_data_s);
 		}
 
 		if(time==4000)time=0;
